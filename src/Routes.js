@@ -1,16 +1,20 @@
 import React from "react";
-import {BrowserRouter,Routes,Route} from 'react-router-dom';
+import {BrowserRouter,Switch,Route} from 'react-router-dom';
 import Signup from './user/Signup';
 import Signin from './user/Signin';
+import HomePage from './core/Home';
 
-const Rout = ()=>{
+
+const Routes = ()=>{
     return(
     <BrowserRouter>
-        <Routes>
-            <Route path="/signin" exact element= {<Signin/>}/>
-            <Route path="/signup" exact element= {<Signup/>}/>
-        </Routes>
+    
+        <Switch>
+            <Route path="/" exact component={HomePage}/>
+            <Route path="/signin" exact component= {Signin}/>
+            <Route path="/signup" exact component= {Signup}/>
+        </Switch>
     </BrowserRouter>)
 }
 
-export default Rout;
+export default Routes;
